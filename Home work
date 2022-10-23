@@ -1,0 +1,85 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+
+package com.mycompany.home_task;
+
+
+import java.util.Scanner;
+
+public class Home_Task 
+{
+    public static void main(String[] args) 
+    {    
+        Scanner myScnr = new Scanner(System.in);
+        
+        System.out.print("Task 1\nInput A: ");
+        int a = myScnr.nextInt();
+        System.out.print("Input B: ");
+        int b = myScnr.nextInt();
+        System.out.print("Input C: ");
+        int c = myScnr.nextInt();
+        
+        int tmp = 0;
+        
+        if(c < b)
+        {
+            tmp = c;
+            c = b;
+            b = tmp;
+        }
+        if(b < a)
+        {
+            tmp = b;
+            b = a;
+            a = tmp;
+        }
+        if(c < b)
+        {
+            tmp = c;
+            c = b;
+            b = tmp;
+        }
+        System.out.println("Ascending output: " + a + ", " + b + ", " + c + "\n");
+        
+        System.out.print("Task 2\nInput A: ");
+        a = myScnr.nextInt();
+        System.out.print("Input B: ");
+        b = myScnr.nextInt();
+        System.out.print("Input C: ");
+        c = myScnr.nextInt();
+        
+        int tmp_a = a;
+        int tmp_b = b;
+        int tmp_c = c;
+        
+        if((a != b) && (b != c) && (a != c))
+        {
+            if((a < b) && (a < c))
+                tmp_a += 2;
+            else if((b < a) && (b < c))
+                tmp_b += 2;
+            else
+                tmp_c += 2;
+
+            if((a > b) && (a > c)) 
+                tmp_a -= 2;   
+            else if((b > a) && (b > c))
+                tmp_b -= 2;
+            else
+                tmp_c -= 2;
+            
+            a = tmp_a;
+            b = tmp_b;
+            c = tmp_c;
+        }
+        else
+            System.out.println("Error: Wrong data"); 
+        
+        
+        System.out.print("Output: a = " + a + ", b = " + b + ", c = " + c);
+   
+        myScnr.close();
+    }
+}
