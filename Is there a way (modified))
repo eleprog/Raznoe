@@ -1,0 +1,49 @@
+package com.mycompany.mavenproject4;
+import java.util.Scanner;
+
+public class Mavenproject4 
+{   
+    public static void main(String[] args) 
+    {
+                         // 0 1 2 3 4 5
+        int [][] matrix = {{0,1,0,0,0,0},  //0
+                           {0,0,1,1,1,0},  //1
+                           {0,0,0,0,0,1},  //2
+                           {0,0,1,0,0,0},  //3
+                           {0,0,0,0,0,0},  //4
+                           {0,1,0,1,0,0}}; //5
+        
+        int [] stack = new int[100];
+        int lowStackPointer = 0;
+        int highStackPointer = 0;
+        int stackPointer = 0;
+        int len = matrix.length;
+        boolean Wayflag = false;
+        boolean [] flags = new boolean[len];
+        
+        Scanner myScnr = new Scanner(System.in);
+        System.out.print("First point: ");
+        stack[0] = myScnr.nextInt();
+        
+        System.out.print("Second point: ");
+        int secondPoint = myScnr.nextInt();
+             
+        for(int i = 0; i < len && !Wayflag; i++)
+        {      
+            for(int j = lowStackPointer; j <= highStackPointer && !Wayflag; j++)
+                for(int k = 0; k < len && !Wayflag; k++)
+                    if(matrix[stack[j]][k] > 0)
+                        if(k == secondPoint)
+                            Wayflag = true;
+                        else if(flags[k] == false)
+                        {
+                            stack[++stackPointer] = k;
+                            flags[k] = true;
+                        }                                             
+            lowStackPointer = highStackPointer + 1;
+            highStackPointer = stackPointer;
+        }
+        System.out.println("Output: " + Wayflag);     
+        System.out.println("Stack counter: " + stackPointer);
+    }
+}
