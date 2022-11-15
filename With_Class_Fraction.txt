@@ -1,0 +1,157 @@
+
+public class Fraction {
+    private int ch;
+    private int zn;
+    static private int countObj = 0;
+    
+    Fraction(){
+    ch = 0;
+    zn = 1;  
+    countObj++;
+    }
+    
+    Fraction(int chA, int znA){
+        countObj++;
+    if(znA == 0)
+    {
+      ch = 0;
+      zn = 1;      
+    }
+    else
+    {
+        ch = chA;
+        zn = znA;    
+    }
+    }
+    
+    Fraction add(Fraction objF)
+    {
+        Fraction res = new Fraction (ch * objF.zn + objF.ch * zn,zn * objF.zn);
+        return res;  
+        
+    }
+    
+    boolean isEqual(Fraction objF)
+    {
+        if(objF == null)
+            return false;
+        if(ch == objF.ch && zn == objF.zn)
+            return true;
+        return false;
+    }
+    String toFormatString()
+    {
+        
+        return ch+"/"+zn;    
+    }
+    public static int getCountObject()
+    {
+        return  countObj;
+    }
+    
+    void setZn(int znA){
+        this.zn = znA;
+    }
+    void setCh(int chA){
+        ch = chA;
+    }
+    
+    int getZn(int znA){
+       return zn;
+    }
+    int getCh(int chA){
+        return ch; 
+    }
+    
+    void CopyFraction(Fraction obj)
+    {
+        if(obj!=null)
+        {
+            ch = obj.ch;
+            zn = obj.zn;
+        } else
+        {
+            ch = 0;
+            zn = 1;
+        
+        }
+    
+    }
+    
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+/*
+
+
+
+
+
+*/
+package com.mycompany.projectwithclass;
+
+/**
+ *
+ * @author Admin
+ */
+public class ProjectWithClass {
+
+    public static void main(String[] args) {
+        
+        Fraction drobA = null; //ссылка
+        Fraction drobB = null; //ссылка
+        Fraction drobC = null; //ссылка
+        Fraction drobD = null; //ссылка
+        
+        //drobA.add(drobD);
+        
+        drobA = new Fraction(1,2);
+        drobB = new Fraction(1,2);
+        drobC = new Fraction(1,4);
+        drobD = new Fraction(1,4);
+        
+        System.out.println("Count of Objects = "+ Fraction.getCountObject());
+        
+        if(drobA == drobB)
+            System.out.println("Equal");
+        else
+            System.out.println("Not Equal");
+        
+        if(drobA.isEqual(drobB))
+           System.out.println("Equal");
+        else
+            System.out.println("Not Equal");
+        
+             
+        
+       Fraction drobF = drobA.add(drobB);
+       System.out.println("Count of Objects = "+ Fraction.getCountObject());
+       
+       
+      drobF =  drobA.add(drobB.add(drobC.add(drobD)));
+      drobF =  ((drobA.add(drobB)).add(drobF)).add(drobF);//.add(drobC.add(drobD)));
+      System.out.println("Count of Objects = "+ Fraction.getCountObject());
+      System.out.println( drobF.toFormatString());
+      
+      drobD = drobF;
+      System.out.println( drobD.toFormatString());
+      drobD.setCh(1);
+      drobD.setZn(2);
+      System.out.println( drobF.toFormatString());
+      drobD.CopyFraction(drobF);
+      
+      
+       //System.out.println("Count of Objects = "+ Fraction.getCountObject());
+       
+        
+      //  System.out.println("Count of Objects = "+ Fraction.getCountObject());
+              
+        
+
+    }
+}
