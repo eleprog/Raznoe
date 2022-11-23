@@ -1,0 +1,91 @@
+SELECT * FROM Students; 		// получить таблицу
+
+table Students
+---|------|----------|
+id | name | lastname |
+---|------|----------|
+ 1 | Bill | Johnson  |
+---|------|----------|
+ 2 | John | Bradley  |
+---|------|----------|
+...| ...  | ...      |
+---|------|----------|
+
+SELECT id FROM Students;		// получить таблицу с полями id
+
+SELECT name FROM_LIMIT 10 Students 	// получить таблицу с полями name, 10 первых значений
+
+SELECT name FROM Students where 
+id%2 == 0 AND name like 's%' LIMIT 5;	// получить таблицу с полями name с чётными id, имена начинающиеся на s, первые 5 значений
+
+CREATE TABLE Students ( 		// создание таблицы
+id int
+value float(n)				// n - количество знаков после запятой
+char(m)					// m - количество символов в строке
+arr int[]
+);
+
+
+CREATE TABLE class(
+	id int,
+	class_type varchar(20),
+	class_num int,
+	class_desc text,
+	is_free boolean);
+
+INSERT INTO class VALUES(1, 'computer', 209, ' ', n);
+	
+
+
+CREATE TABLE class(
+
+	id serial, (!!!) 
+
+	class_type varchar(20),
+	class_num int,
+	class_desc text,
+	is_free boolean);
+
+INSERT INTO class VALUES('computer', 209, ' ', n); 
+
+
+
+CREATE TABLE class(
+	id serial PRIMARY KEY,  	// ключ уникальности
+	class_type varchar(20) NOT NULL,
+	class_num int UNIQUE NOT NULL,
+	class_desc text,
+	is_free boolean);
+
+INSERT INTO class VALUES('computer', 209, ' ', n); 
+
+
+
+CREATE TABLE class(
+	id serial,
+	class_type varchar(20) NOT NULL,
+	class_num int UNIQUE NOT NULL,
+	class_desc text,
+	is_free boolean,
+	PRIMARY KEY(id, class_num); 	// ключ уникальности для полей id, class_num
+);
+
+INSERT INTO class VALUES('computer', 209, ' ', n); 
+
+
+
+CREATE TABLE group IF NOT EXIST( 	// создать таблицу если она не существует 
+	id serial,
+	group_num int UNIQUE NOT NULL,
+	class int REFERENCES class (class_num),	// поле ссылается на таблицу class, поле class_num 	
+);
+
+
+CREATE SEQUENCE group_id_set 
+	ON TABLE group 
+	START 100 
+OWNED BY group.id;
+
+INSERT INTO group (group_num, class)
+values(222185, 209)
+
