@@ -1,4 +1,6 @@
-SELECT * FROM Students; 		// получить таблицу
+https://sqliteonline.com/
+
+SELECT * FROM Students; 		// ГЇГ®Г«ГіГ·ГЁГІГј ГІГ ГЎГ«ГЁГ¶Гі
 
 table Students
 ---|------|----------|
@@ -11,17 +13,17 @@ id | name | lastname |
 ...| ...  | ...      |
 ---|------|----------|
 
-SELECT id FROM Students;		// получить таблицу с полями id
+SELECT id FROM Students;		// ГЇГ®Г«ГіГ·ГЁГІГј ГІГ ГЎГ«ГЁГ¶Гі Г± ГЇГ®Г«ГїГ¬ГЁ id
 
-SELECT name FROM_LIMIT 10 Students 	// получить таблицу с полями name, 10 первых значений
+SELECT name FROM_LIMIT 10 Students 	// ГЇГ®Г«ГіГ·ГЁГІГј ГІГ ГЎГ«ГЁГ¶Гі Г± ГЇГ®Г«ГїГ¬ГЁ name, 10 ГЇГҐГ°ГўГ»Гµ Г§Г­Г Г·ГҐГ­ГЁГ©
 
 SELECT name FROM Students where 
-id%2 == 0 AND name like 's%' LIMIT 5;	// получить таблицу с полями name с чётными id, имена начинающиеся на s, первые 5 значений
+id%2 == 0 AND name like 's%' LIMIT 5;	// ГЇГ®Г«ГіГ·ГЁГІГј ГІГ ГЎГ«ГЁГ¶Гі Г± ГЇГ®Г«ГїГ¬ГЁ name Г± Г·ВёГІГ­Г»Г¬ГЁ id, ГЁГ¬ГҐГ­Г  Г­Г Г·ГЁГ­Г ГѕГ№ГЁГҐГ±Гї Г­Г  s, ГЇГҐГ°ГўГ»ГҐ 5 Г§Г­Г Г·ГҐГ­ГЁГ©
 
-CREATE TABLE Students ( 		// создание таблицы
+CREATE TABLE Students ( 		// Г±Г®Г§Г¤Г Г­ГЁГҐ ГІГ ГЎГ«ГЁГ¶Г»
 id int
-value float(n)				// n - количество знаков после запятой
-char(m)					// m - количество символов в строке
+value float(n)				// n - ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г§Г­Г ГЄГ®Гў ГЇГ®Г±Г«ГҐ Г§Г ГЇГїГІГ®Г©
+char(m)					// m - ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГЁГ¬ГўГ®Г«Г®Гў Гў Г±ГІГ°Г®ГЄГҐ
 arr int[]
 );
 
@@ -51,7 +53,7 @@ INSERT INTO class VALUES('computer', 209, ' ', n);
 
 
 CREATE TABLE class(
-	id serial PRIMARY KEY,  	// ключ уникальности
+	id serial PRIMARY KEY,  	// ГЄГ«ГѕГ· ГіГ­ГЁГЄГ Г«ГјГ­Г®Г±ГІГЁ
 	class_type varchar(20) NOT NULL,
 	class_num int UNIQUE NOT NULL,
 	class_desc text,
@@ -67,17 +69,17 @@ CREATE TABLE class(
 	class_num int UNIQUE NOT NULL,
 	class_desc text,
 	is_free boolean,
-	PRIMARY KEY(id, class_num); 	// ключ уникальности для полей id, class_num
+	PRIMARY KEY(id, class_num); 	// ГЄГ«ГѕГ· ГіГ­ГЁГЄГ Г«ГјГ­Г®Г±ГІГЁ Г¤Г«Гї ГЇГ®Г«ГҐГ© id, class_num
 );
 
 INSERT INTO class VALUES('computer', 209, ' ', n); 
 
 
 
-CREATE TABLE group IF NOT EXIST( 	// создать таблицу если она не существует 
+CREATE TABLE group IF NOT EXIST( 	// Г±Г®Г§Г¤Г ГІГј ГІГ ГЎГ«ГЁГ¶Гі ГҐГ±Г«ГЁ Г®Г­Г  Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ 
 	id serial,
 	group_num int UNIQUE NOT NULL,
-	class int REFERENCES class (class_num),	// поле ссылается на таблицу class, поле class_num 	
+	class int REFERENCES class (class_num),	// ГЇГ®Г«ГҐ Г±Г±Г»Г«Г ГҐГІГ±Гї Г­Г  ГІГ ГЎГ«ГЁГ¶Гі class, ГЇГ®Г«ГҐ class_num 	
 );
 
 
