@@ -102,8 +102,8 @@ CREATE TABLE railway_station(
   	address varchar(30));
 
 CREATE TABLE train_run(
-  	id int,
+  	id int PRIMARY KEY,
   	train_number int,
-	name varchar(20) PRIMARY KEY,
+	name varchar(20),
   	departure_time timestamp with time zone,
   	address varchar(20));
