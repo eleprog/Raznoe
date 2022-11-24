@@ -3,15 +3,15 @@ https://sqliteonline.com/
 SELECT * FROM Students; 		// ïîëó÷èòü òàáëèöó
 
 table Students
----|------|----------|
-id | name | lastname |
----|------|----------|
- 1 | Bill | Johnson  |
----|------|----------|
- 2 | John | Bradley  |
----|------|----------|
-...| ...  | ...      |
----|------|----------|
++---+------+----------+
+|id | name | lastname |
++---+------+----------+
+| 1 | Bill | Johnson  |
++---+------+----------+
+| 2 | John | Bradley  |
++---+------+----------+
+|...| ...  | ...      |
++---+------+----------+
 
 SELECT id FROM Students;		// ïîëó÷èòü òàáëèöó ñ ïîëÿìè id
 
@@ -92,7 +92,7 @@ INSERT INTO group (group_num, class)
 values(222185, 209)
 
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CREATE TABLE railway_station(
   	id int,
@@ -100,3 +100,10 @@ CREATE TABLE railway_station(
   	time_open time without time zone,
   	time_close time without time zone,
   	address varchar(30));
+
+CREATE TABLE train_run(
+  	id int,
+  	train_number int,
+	name varchar(20) PRIMARY KEY,
+  	departure_time timestamp with time zone,
+  	address varchar(20));
