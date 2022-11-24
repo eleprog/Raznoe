@@ -91,3 +91,12 @@ OWNED BY group.id;
 INSERT INTO group (group_num, class)
 values(222185, 209)
 
+
+
+
+CREATE TABLE railway_station(
+  	id int,
+	name varchar(20) PRIMARY KEY,
+  	time_open time without time zone,
+  	time_close time without time zone,
+  	address varchar(30));
