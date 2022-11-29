@@ -97,16 +97,45 @@ values(222185, 209)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CREATE TABLE railway_station(
+CREATE TABLE station(
   	id int,
 	name varchar(20) PRIMARY KEY,
-  	time_open time without time zone,
-  	time_close time without time zone,
-  	address varchar(30));
+  	time_open time(0) without time zone,
+  	time_close time(0) without time zone);
 
-CREATE TABLE train_run(
+CREATE SEQUENCE station_id
+	START 1
+OWNED BY station.id;
+
+INSERT INTO station VALUES (nextval('station_id'), 'Томск', '6:00:00', '22:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Кемерово', '7:00:00', '23:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Новосибирск', '5:00:00', '24:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Красноярск', '6:00:00', '00:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Москва', '00:00:00', '00:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Бийск', '10:00:00', '20:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Омск', '4:00:00', '20:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Тюмень', '6:00:00', '20:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Юрга', '00:00:00', '00:00:00');
+
+
+CREATE TABLE trainRun(
   	id int PRIMARY KEY,
   	train_number int,
 	name varchar(20),
-  	departure_time timestamp with time zone,
+	departure_date date,
+  	departure_time time(0),	
   	address varchar(20));
+	
+CREATE SEQUENCE trainRun_id
+	START 1 
+OWNED BY trainRun.id;
+
+CREATE TABLE train(
+  	id int,
+  	train_number int PRIMARY KEY,
+	driver name varchar(30),
+  	address varchar(20));
+	
+CREATE SEQUENCE train_id
+	START 1 
+OWNED BY train.id;	
