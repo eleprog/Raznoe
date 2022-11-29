@@ -1,5 +1,8 @@
 https://sqliteonline.com/
 
+https://dbeaver.io/
+https://www.postgresql.org/download/
+
 SELECT * FROM Students; 		// ïîëó÷èòü òàáëèöó
 
 table Students
