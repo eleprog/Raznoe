@@ -120,8 +120,7 @@ INSERT INTO station VALUES (nextval('station_id'), 'Юрга', '00:00:00', '00:0
 
 CREATE TABLE trainRun(
   	id int PRIMARY KEY,
-  	train_number int,
-	name varchar(20),
+  	train_number int UNIQUE NOT NULL,
 	departure_date date,
   	departure_time time(0),	
   	address varchar(20));
@@ -129,6 +128,16 @@ CREATE TABLE trainRun(
 CREATE SEQUENCE trainRun_id
 	START 1 
 OWNED BY trainRun.id;
+
+INSERT INTO station VALUES (nextval('trainRun_id'), 1316, '6:00:00', '02:15:00');
+INSERT INTO station VALUES (nextval('trainRun_id'), 5676, '7:00:00', '15:00:00');
+INSERT INTO station VALUES (nextval('trainRun_id'), 2365, '5:00:00', '23:00:00');
+INSERT INTO station VALUES (nextval('trainRun_id'), 1267, '6:00:00', '5:25:00');
+INSERT INTO station VALUES (nextval('trainRun_id'), 7959, '00:00:00', '9:00:00');
+INSERT INTO station VALUES (nextval('trainRun_id'), 2380, '10:00:00', '7:45:00');
+INSERT INTO station VALUES (nextval('trainRun_id'), 6732, '4:00:00', '00:00:00');
+INSERT INTO station VALUES (nextval('trainRun_id'), 9826, '6:00:00', '16:15:00');
+INSERT INTO station VALUES (nextval('trainRun_id'), 9074, '00:00:00', '12:30:00');
 
 CREATE TABLE train(
   	id int,
