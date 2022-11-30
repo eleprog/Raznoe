@@ -107,14 +107,14 @@ CREATE SEQUENCE station_id
 	START 1
 OWNED BY station.id;
 
-INSERT INTO station VALUES (nextval('station_id'), 'Томск', '6:00:00', '22:00:00');
-INSERT INTO station VALUES (nextval('station_id'), 'Кемерово', '7:00:00', '23:00:00');
-INSERT INTO station VALUES (nextval('station_id'), 'Новосибирск', '5:00:00', '24:00:00');
-INSERT INTO station VALUES (nextval('station_id'), 'Красноярск', '6:00:00', '00:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Томск', '06:00:00', '22:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Кемерово', '07:00:00', '23:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Новосибирск', '05:00:00', '24:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Красноярск', '06:00:00', '00:00:00');
 INSERT INTO station VALUES (nextval('station_id'), 'Москва', '00:00:00', '00:00:00');
 INSERT INTO station VALUES (nextval('station_id'), 'Бийск', '10:00:00', '20:00:00');
-INSERT INTO station VALUES (nextval('station_id'), 'Омск', '4:00:00', '20:00:00');
-INSERT INTO station VALUES (nextval('station_id'), 'Тюмень', '6:00:00', '20:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Омск', '04:00:00', '20:00:00');
+INSERT INTO station VALUES (nextval('station_id'), 'Тюмень', '06:00:00', '20:00:00');
 INSERT INTO station VALUES (nextval('station_id'), 'Юрга', '00:00:00', '00:00:00');
 
 
@@ -123,21 +123,25 @@ CREATE TABLE trainRun(
   	train_number int FOREIGN KEY REFERENCES train(number),
 	departure_date date,
   	departure_time time(0),	
-  	address varchar(20));
+  	address varchar(20) FOREIGN KEY REFERENCES station(name));
 	
 CREATE SEQUENCE trainRun_id
 	START 1 
 OWNED BY trainRun.id;
 
-INSERT INTO station VALUES (nextval('trainRun_id'), 1316, '6:00:00', '02:15:00');
-INSERT INTO station VALUES (nextval('trainRun_id'), 5676, '7:00:00', '15:00:00');
-INSERT INTO station VALUES (nextval('trainRun_id'), 2365, '5:00:00', '23:00:00');
-INSERT INTO station VALUES (nextval('trainRun_id'), 1267, '6:00:00', '5:25:00');
-INSERT INTO station VALUES (nextval('trainRun_id'), 7959, '00:00:00', '9:00:00');
-INSERT INTO station VALUES (nextval('trainRun_id'), 2380, '10:00:00', '7:45:00');
-INSERT INTO station VALUES (nextval('trainRun_id'), 6732, '4:00:00', '00:00:00');
-INSERT INTO station VALUES (nextval('trainRun_id'), 9826, '6:00:00', '16:15:00');
-INSERT INTO station VALUES (nextval('trainRun_id'), 9074, '00:00:00', '12:30:00');
+INSERT INTO station VALUES (nextval('trainRun_id'), 1, '2022-12-04', '02:15:00', 'Томск');
+INSERT INTO station VALUES (nextval('trainRun_id'), 1, '2022-10-21', '15:00:00', 'Красноярск');
+INSERT INTO station VALUES (nextval('trainRun_id'), 2, '2022-11-29', '23:00:00', 'Омск');
+INSERT INTO station VALUES (nextval('trainRun_id'), 2, '2022-12-05', '05:25:00', 'Юрга');
+INSERT INTO station VALUES (nextval('trainRun_id'), 3, '2022-10-24', '09:00:00', 'Новосибирск');
+INSERT INTO station VALUES (nextval('trainRun_id'), 4, '2022-10-07', '07:45:00', 'Красноярск');
+INSERT INTO station VALUES (nextval('trainRun_id'), 4, '2022-11-26', '00:00:00', 'Тюмень');
+INSERT INTO station VALUES (nextval('trainRun_id'), 5, '2022-11-14', '16:15:00', 'Москва');
+INSERT INTO station VALUES (nextval('trainRun_id'), 5, '2022-12-30', '12:30:00', 'Кемерово');
+INSERT INTO station VALUES (nextval('trainRun_id'), 5, '2022-10-07', '07:45:00', 'Бийск');
+INSERT INTO station VALUES (nextval('trainRun_id'), 6, '2022-11-26', '00:00:00', 'Омск');
+INSERT INTO station VALUES (nextval('trainRun_id'), 7, '2022-11-14', '16:15:00', 'Юрга');
+INSERT INTO station VALUES (nextval('trainRun_id'), 7, '2022-12-30', '12:30:00', 'Кемерово');
 
 CREATE TABLE train(
   	id int,
