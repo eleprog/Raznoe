@@ -79,7 +79,7 @@ INSERT INTO class VALUES('computer', 209, ' ', n);
 
 
 
-CREATE TABLE group IF NOT EXIST( 	// ñîçäàòü òàáëèöó åñëè îíà íå ñóùåñòâóåò 
+CREATE TABLE IF NOT EXISTS group( 	// ñîçäàòü òàáëèöó åñëè îíà íå ñóùåñòâóåò 
 	id serial,
 	group_num int UNIQUE NOT NULL,
 	class int REFERENCES class (class_num),	// ïîëå ññûëàåòñÿ íà òàáëèöó class, ïîëå class_num 	
