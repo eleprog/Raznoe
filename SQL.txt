@@ -7,7 +7,7 @@ https://mkyong.com/jdbc/how-do-connect-to-postgresql-with-jdbc-driver-java/
 https://postgrespro.ru/docs/postgresql/9.6/functions-datetime
 https://postgrespro.ru/docs/postgresql/9.4/datatype-datetime
 
-SELECT * FROM Students; 		// ïîëó÷èòü òàáëèöó
+SELECT * FROM Students; 		// получить таблицу
 
 table Students
 +---+------+----------+
@@ -20,17 +20,17 @@ table Students
 |...| ...  | ...      |
 +---+------+----------+
 
-SELECT id FROM Students;		// ïîëó÷èòü òàáëèöó ñ ïîëÿìè id
+SELECT id FROM Students;		// получить таблицу с полями id
 
-SELECT name FROM_LIMIT 10 Students 	// ïîëó÷èòü òàáëèöó ñ ïîëÿìè name, 10 ïåðâûõ çíà÷åíèé
+SELECT name FROM_LIMIT 10 Students 	// получить таблицу с полями name, 10 первых значений
 
 SELECT name FROM Students where 
-id%2 == 0 AND name like 's%' LIMIT 5;	// ïîëó÷èòü òàáëèöó ñ ïîëÿìè name ñ ÷¸òíûìè id, èìåíà íà÷èíàþùèåñÿ íà s, ïåðâûå 5 çíà÷åíèé
+id%2 == 0 AND name like 's%' LIMIT 5;	// получить таблицу с полями name с чётными id, имена начинающиеся на s ïåðâûå 5 çíà÷åíèé
 
-CREATE TABLE Students ( 		// ñîçäàíèå òàáëèöû
+CREATE TABLE Students ( 		// создание таблицы
 id int
-value float(n)				// n - êîëè÷åñòâî çíàêîâ ïîñëå çàïÿòîé
-char(m)					// m - êîëè÷åñòâî ñèìâîëîâ â ñòðîêå
+value float(n)				// n - количество знаков после запятой
+char(m)					// m - количество символов в строке
 arr int[]
 );
 
@@ -60,7 +60,7 @@ INSERT INTO class VALUES('computer', 209, ' ', n);
 
 
 CREATE TABLE class(
-	id serial PRIMARY KEY,  	// êëþ÷ óíèêàëüíîñòè
+	id serial PRIMARY KEY,  	// ключ уникальности
 	class_type varchar(20) NOT NULL,
 	class_num int UNIQUE NOT NULL,
 	class_desc text,
@@ -76,17 +76,17 @@ CREATE TABLE class(
 	class_num int UNIQUE NOT NULL,
 	class_desc text,
 	is_free boolean,
-	PRIMARY KEY(id, class_num); 	// êëþ÷ óíèêàëüíîñòè äëÿ ïîëåé id, class_num
+	PRIMARY KEY(id, class_num); 	// ключ уникальности для полей id, class_num
 );
 
 INSERT INTO class VALUES('computer', 209, ' ', n); 
 
 
 
-CREATE TABLE IF NOT EXISTS group( 	// ñîçäàòü òàáëèöó åñëè îíà íå ñóùåñòâóåò 
+CREATE TABLE IF NOT EXISTS group( 	// создать таблицу если она не существует 
 	id serial,
 	group_num int UNIQUE NOT NULL,
-	class int REFERENCES class (class_num),	// ïîëå ññûëàåòñÿ íà òàáëèöó class, ïîëå class_num 	
+	class int REFERENCES class (class_num),	// поле ссылается на таблицу class, поле class_num 	
 );
 
 
