@@ -1,7 +1,11 @@
 https://sqliteonline.com/
-
+https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-data-types/
+https://www.postgresql.org/docs/current/ddl-constraints.html
 https://dbeaver.io/
 https://www.postgresql.org/download/
+https://mkyong.com/jdbc/how-do-connect-to-postgresql-with-jdbc-driver-java/
+https://postgrespro.ru/docs/postgresql/9.6/functions-datetime
+https://postgrespro.ru/docs/postgresql/9.4/datatype-datetime
 
 SELECT * FROM Students; 		// ïîëó÷èòü òàáëèöó
 
