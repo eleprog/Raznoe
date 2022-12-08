@@ -1,0 +1,4 @@
+IntellijIDEA - https://www.jetbrains.com/ru-ru/idea/download/#section=windows
+txt - https://www.geeksforgeeks.org/different-ways-reading-text-file-java/
+json - https://www.geeksforgeeks.org/parse-json-java/
+csv - https://www.geeksforgeeks.org/reading-csv-file-java-using-opencsv/
