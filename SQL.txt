@@ -7,6 +7,17 @@ https://mkyong.com/jdbc/how-do-connect-to-postgresql-with-jdbc-driver-java/
 https://postgrespro.ru/docs/postgresql/9.6/functions-datetime
 https://postgrespro.ru/docs/postgresql/9.4/datatype-datetime
 
+IntellijIDEA - https://www.jetbrains.com/ru-ru/idea/download/#section=windows
+txt:
+ 1) чтение txt - https://www.geeksforgeeks.org/different-ways-reading-text-file-java/
+ 2) запись txt - https://www.geeksforgeeks.org/java-program-to-write-into-a-file/
+csv:
+ 1) чтение csv - https://www.geeksforgeeks.org/reading-csv-file-java-using-opencsv/
+ 2) запись csv - https://www.geeksforgeeks.org/writing-a-csv-file-in-java-using-opencsv/
+чтение/запись json: https://www.geeksforgeeks.org/parse-json-java/
+
+
+
 SELECT * FROM Students; 		// получить таблицу
 
 table Students
