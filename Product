@@ -1,0 +1,14 @@
+package com.mycompany.spring;
+
+public class Product {
+    private String name;
+    private String type;
+    private int amt;
+    private int price;
+    private float discount;
+    private float finalPrice;
+    
+    Product(String productName) {
+        
+    }
+}
