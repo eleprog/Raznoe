@@ -36,7 +36,7 @@ SELECT id FROM Students;		// получить таблицу с полями id
 SELECT name FROM_LIMIT 10 Students 	// получить таблицу с полями name, 10 первых значений
 
 SELECT name FROM Students where 
-id%2 == 0 AND name like 's%' LIMIT 5;	// получить таблицу с полями name с чётными id, имена начинающиеся на s ïåðâûå 5 çíà÷åíèé
+id%2 == 0 AND name like 's%' LIMIT 5;	// получить таблицу с полями name с чётными id, имена начинающиеся на s
 
 CREATE TABLE Students ( 		// создание таблицы
 id int
